@@ -1339,8 +1339,34 @@ export type Uuid_Comparison_Exp = {
 
 export type ShipsQueryVariables = Exact<{ [key: string]: never; }>;
 
+export type ShipItem = {
+  __typename?: 'Ship';
+  id?: string | null;
+  class?: number | null;
+  name?: string | null;
+  image?: string | null;
+};
 
-export type ShipsQuery = { __typename?: 'Query', ships?: Array<{ __typename?: 'Ship', id?: string | null, class?: number | null, name?: string | null } | null> | null };
+export type ShipsQuery = { 
+  __typename?: 'Query';
+   ships?: Array<ShipItem | null> | null;
+};
+
+export type MissionItem = { 
+  __typename?: 'Mission';
+  id?: string | null;
+  shipId?: number | null;
+  name?: string | null;
+  destination?: string | null;
+  cargo?: string | null;
+};
+
+export type MissionsQuery = { 
+  __typename?: 'Query';
+   missions?: Array<MissionItem | null> | null;
+};
 
 
-export const ShipsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"class"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<ShipsQuery, ShipsQueryVariables>;
+
+export const ShipsDocument = { "kind": "Document",
+ "definitions": [{ "kind": "OperationDefinition", "operation": "query", "name": { "kind": "Name", "value": "ships" }, "selectionSet": { "kind": "SelectionSet", "selections": [{ "kind": "Field", "name": { "kind": "Name", "value": "ships" }, "selectionSet": { "kind": "SelectionSet", "selections": [{ "kind": "Field", "name": { "kind": "Name", "value": "id" } }, { "kind": "Field", "name": { "kind": "Name", "value": "class" } }, { "kind": "Field", "name": { "kind": "Name", "value": "name" } }] } }] } }] } as unknown as DocumentNode<ShipsQuery, ShipsQueryVariables>;

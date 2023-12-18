@@ -6,6 +6,7 @@ const ships = gql`
     id
     class
     name
+    image
     }
   }
 `;
